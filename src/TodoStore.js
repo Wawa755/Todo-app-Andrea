@@ -6,16 +6,23 @@ export const useTodoStore = defineStore('todoStore', {
   }),
   actions: {
     addTask(title, description, date) {
+      if (!title.trim()) {
+        alert("Task title can't be empty!");
+        return;
+      }
+      const taskDescription = description.trim() ? description : '/';
+
       const newTask = {
         title,
-        description,
-        date: new Date(date).toISOString(), //make date in easier format
+        description: taskDescription,
+        date: new Date(date).toISOString(), //make date in an easier format
         status: 'incomplete'
       };
+
       this.todoList.push(newTask);
     },
 
-    toggleStatus(index) {
+    toggleTaskStatus(index) {
       let task = this.todoList[index];
     
       //save time when completed

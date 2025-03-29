@@ -18,16 +18,20 @@ export default {
   },
   methods: {
     submitTask() {
-      if (!this.taskTitle.trim()) return;
-      this.todoStore.addTask(this.taskTitle, this.taskDescription, this.taskDate);
-      
-      //reset
+    if (!this.taskTitle.trim()) {
+      alert("Todo title can't be empty!");
+      return; 
+    }
+    
+    this.todoStore.addTask(this.taskTitle, this.taskDescription, this.taskDate);
+      //reset inputs
       this.taskTitle = '';
       this.taskDescription = '';
       this.taskDate = null;
     }
   }
 };
+
 </script>
 
 <template>

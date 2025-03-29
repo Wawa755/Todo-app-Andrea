@@ -15,8 +15,13 @@ export default {
 
     //date
     const formatDate = (isoDate) => {
-      return new Date(isoDate).toLocaleDateString(); 
-    };
+  return new Date(isoDate).toLocaleDateString('en', {
+    weekday: 'long', 
+    month: 'short',
+    day: 'numeric', 
+    year: 'numeric'
+  });
+};
 
     //overdue
     const isOverdue = (taskDate) => {
@@ -75,7 +80,7 @@ export default {
           <input 
             type="checkbox" 
             :checked="task.status === 'complete'" 
-            @change="todoStore.toggleStatus(index)" 
+            @change="todoStore.toggleTaskStatus(index)" 
           />
         </td>
         <td :class="{ completed: task.status === 'complete' }">
@@ -125,7 +130,8 @@ table {
   width: 100%;
   background-color:rgb(251, 249, 246);
   border-radius: 20px;
-  overflow: hidden
+  overflow: hidden;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   
 }
 .table_top{

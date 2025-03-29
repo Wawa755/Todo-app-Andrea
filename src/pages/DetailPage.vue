@@ -32,10 +32,9 @@ export default {
   <div class="Detail_page">
     <div v-if="task">
       <div class="Header">
-
-        <h1>Task Details</h1>
-
+        <h1>Todo Details</h1>
       </div>
+    
       <p><strong>Title:</strong> {{ task.title }}</p>
       <p><strong>Description:</strong> {{ task.description }}</p>
       <p><strong>Status:</strong> {{ task.status }}</p>
@@ -43,9 +42,8 @@ export default {
     </div>
     
     <div v-else>
-      <p>Task not found.</p>
+      <p>Todo not found.</p>
     </div>
-    
   </div>
 </template>
 
